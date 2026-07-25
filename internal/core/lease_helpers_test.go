@@ -1,6 +1,6 @@
 package core_test
 
-import "github.com/HaikIsaiants/chronos/internal/core"
+import "github.com/HaikIsaiants/chronos-public/internal/core"
 
 func lease(command core.Command) core.Command {
 	command.WorkerID = "test-worker"

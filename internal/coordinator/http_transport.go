@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/HaikIsaiants/chronos/internal/observability"
+	"github.com/HaikIsaiants/chronos-public/internal/observability"
 	pb "go.etcd.io/raft/v3/raftpb"
 	"google.golang.org/protobuf/proto"
 )

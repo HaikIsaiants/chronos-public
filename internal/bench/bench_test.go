@@ -3,8 +3,8 @@ package bench_test
 import (
 	"testing"
 
-	"github.com/HaikIsaiants/chronos/internal/bench"
-	"github.com/HaikIsaiants/chronos/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/bench"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
 )
 
 func TestEngineBenchmarkCounters(t *testing.T) {

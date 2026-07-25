@@ -3,7 +3,7 @@ package faultlab
 import (
 	"fmt"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
 )
 
 type Trace struct {

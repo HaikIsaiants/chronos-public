@@ -5,8 +5,8 @@ import (
 	"reflect"
 	"sort"
 
-	"github.com/HaikIsaiants/chronos/internal/coordinator"
-	"github.com/HaikIsaiants/chronos/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/coordinator"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
 	"go.etcd.io/raft/v3"
 )
 

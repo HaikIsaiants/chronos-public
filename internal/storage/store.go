@@ -8,7 +8,7 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
 	"github.com/cockroachdb/pebble/v2"
 	"github.com/cockroachdb/pebble/v2/bloom"
 	"github.com/cockroachdb/pebble/v2/sstable"

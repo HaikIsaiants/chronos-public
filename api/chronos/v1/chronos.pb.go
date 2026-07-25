@@ -2368,7 +2368,7 @@ const file_api_chronos_v1_chronos_proto_rawDesc = "" +
 	"\x1dEVENT_KIND_WORKFLOW_CANCELLED\x10\x15\x12#\n" +
 	"\x1fEVENT_KIND_WORKFLOW_COMPENSATED\x10\x162V\n" +
 	"\rWorkerService\x12E\n" +
-	"\x04Work\x12\x19.chronos.v1.WorkerMessage\x1a\x1e.chronos.v1.CoordinatorMessage(\x010\x01B:Z8github.com/HaikIsaiants/chronos/api/chronos/v1;chronosv1b\x06proto3"
+	"\x04Work\x12\x19.chronos.v1.WorkerMessage\x1a\x1e.chronos.v1.CoordinatorMessage(\x010\x01BAZ?github.com/HaikIsaiants/chronos-public/api/chronos/v1;chronosv1b\x06proto3"
 
 var (
 	file_api_chronos_v1_chronos_proto_rawDescOnce sync.Once

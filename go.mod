@@ -1,4 +1,4 @@
-module github.com/HaikIsaiants/chronos
+module github.com/HaikIsaiants/chronos-public
 
 go 1.26
 

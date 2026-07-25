@@ -9,7 +9,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
 	"github.com/golang/snappy"
 	pb "go.etcd.io/raft/v3/raftpb"
 	"google.golang.org/protobuf/proto"

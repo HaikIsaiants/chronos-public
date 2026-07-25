@@ -7,7 +7,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
 )
 
 func TestScheduledWorkflowStart(t *testing.T) {

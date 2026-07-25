@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
-	"github.com/HaikIsaiants/chronos/internal/scheduler"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/scheduler"
 	"go.etcd.io/raft/v3"
 	pb "go.etcd.io/raft/v3/raftpb"
 )

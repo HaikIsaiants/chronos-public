@@ -13,9 +13,9 @@ import (
 	"syscall"
 	"time"
 
-	chronosv1 "github.com/HaikIsaiants/chronos/api/chronos/v1"
-	"github.com/HaikIsaiants/chronos/internal/core"
-	"github.com/HaikIsaiants/chronos/internal/execution"
+	chronosv1 "github.com/HaikIsaiants/chronos-public/api/chronos/v1"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/execution"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )

@@ -13,8 +13,8 @@ import (
 	"testing"
 	"time"
 
-	chronosv1 "github.com/HaikIsaiants/chronos/api/chronos/v1"
-	"github.com/HaikIsaiants/chronos/internal/core"
+	chronosv1 "github.com/HaikIsaiants/chronos-public/api/chronos/v1"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/credentials/insecure"

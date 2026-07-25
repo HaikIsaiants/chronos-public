@@ -5,9 +5,9 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/HaikIsaiants/chronos/internal/bench"
-	"github.com/HaikIsaiants/chronos/internal/core"
-	"github.com/HaikIsaiants/chronos/internal/scheduler"
+	"github.com/HaikIsaiants/chronos-public/internal/bench"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/scheduler"
 )
 
 func TestStageBatchMatchesSequentialWorkload(t *testing.T) {

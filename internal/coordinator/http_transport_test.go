@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/HaikIsaiants/chronos/internal/observability"
+	"github.com/HaikIsaiants/chronos-public/internal/observability"
 	pb "go.etcd.io/raft/v3/raftpb"
 	"go.opentelemetry.io/otel/trace"
 )

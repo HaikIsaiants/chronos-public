@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
-	"github.com/HaikIsaiants/chronos/internal/faultlab"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/faultlab"
 )
 
 func TestReleaseTraceCoversEveryEventKind(t *testing.T) {

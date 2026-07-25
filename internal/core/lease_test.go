@@ -4,7 +4,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
 )
 
 func TestLeaseRenewExpiryAndFencing(t *testing.T) {

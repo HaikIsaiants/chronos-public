@@ -13,10 +13,10 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/HaikIsaiants/chronos/internal/coordinator"
-	"github.com/HaikIsaiants/chronos/internal/execution"
-	"github.com/HaikIsaiants/chronos/internal/observability"
-	"github.com/HaikIsaiants/chronos/internal/scheduler"
+	"github.com/HaikIsaiants/chronos-public/internal/coordinator"
+	"github.com/HaikIsaiants/chronos-public/internal/execution"
+	"github.com/HaikIsaiants/chronos-public/internal/observability"
+	"github.com/HaikIsaiants/chronos-public/internal/scheduler"
 )
 
 func main() {

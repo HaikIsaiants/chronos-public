@@ -6,8 +6,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
-	"github.com/HaikIsaiants/chronos/internal/scheduler"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/scheduler"
 )
 
 func TestAdmissionBoundsAndBatchAtomicity(t *testing.T) {

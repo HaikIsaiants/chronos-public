@@ -6,8 +6,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
-	"github.com/HaikIsaiants/chronos/internal/storage"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/storage"
 )
 
 func TestThreeNodeQuorumRestartAndRetry(t *testing.T) {

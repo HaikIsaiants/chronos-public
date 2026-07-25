@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
 )
 
 func TestStagingStageMatchesMaterializedPreparation(t *testing.T) {

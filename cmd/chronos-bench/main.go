@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/HaikIsaiants/chronos/internal/bench"
-	"github.com/HaikIsaiants/chronos/internal/recoverybench"
+	"github.com/HaikIsaiants/chronos-public/internal/bench"
+	"github.com/HaikIsaiants/chronos-public/internal/recoverybench"
 )
 
 func main() {

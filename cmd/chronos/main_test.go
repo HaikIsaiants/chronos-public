@@ -14,7 +14,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
 )
 
 func TestRunReleaseWorkflow(t *testing.T) {

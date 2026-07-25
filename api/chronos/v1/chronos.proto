@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package chronos.v1;
 
-option go_package = "github.com/HaikIsaiants/chronos/api/chronos/v1;chronosv1";
+option go_package = "github.com/HaikIsaiants/chronos-public/api/chronos/v1;chronosv1";
 
 enum WorkflowStatus {
   WORKFLOW_STATUS_UNSPECIFIED = 0;

@@ -6,8 +6,8 @@ import (
 	"sort"
 	"sync"
 
-	chronosv1 "github.com/HaikIsaiants/chronos/api/chronos/v1"
-	"github.com/HaikIsaiants/chronos/internal/core"
+	chronosv1 "github.com/HaikIsaiants/chronos-public/api/chronos/v1"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
 )
 
 type HandlerResult struct {

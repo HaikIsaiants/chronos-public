@@ -5,7 +5,7 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
 )
 
 const WorkloadCommandsPerWorkflow uint64 = 17

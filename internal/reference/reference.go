@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
 )
 
 type Result struct {

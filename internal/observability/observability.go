@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc"
@@ -115,7 +115,7 @@ func (p *Provider) Close(ctx context.Context) error {
 }
 
 func (p *Provider) Tracer() trace.Tracer {
-	return p.traces.Tracer("github.com/HaikIsaiants/chronos")
+	return p.traces.Tracer("github.com/HaikIsaiants/chronos-public")
 }
 
 func (p *Provider) HTTPHandler(name string, handler http.Handler) http.Handler {

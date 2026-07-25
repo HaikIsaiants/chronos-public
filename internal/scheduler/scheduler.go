@@ -6,7 +6,7 @@ import (
 	"math"
 	"sort"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
 )
 
 var ErrBackpressure = errors.New("scheduler capacity exhausted")

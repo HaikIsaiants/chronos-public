@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
 	"github.com/golang/snappy"
 )
 

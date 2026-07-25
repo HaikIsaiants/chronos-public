@@ -7,8 +7,8 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
-	"github.com/HaikIsaiants/chronos/internal/reference"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/reference"
 )
 
 func TestRandomizedDAGsMatchReference(t *testing.T) {

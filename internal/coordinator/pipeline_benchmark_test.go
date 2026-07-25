@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/HaikIsaiants/chronos/internal/bench"
-	"github.com/HaikIsaiants/chronos/internal/core"
-	"github.com/HaikIsaiants/chronos/internal/scheduler"
+	"github.com/HaikIsaiants/chronos-public/internal/bench"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/scheduler"
 	pb "go.etcd.io/raft/v3/raftpb"
 )
 

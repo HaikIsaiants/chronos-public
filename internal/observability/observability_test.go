@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
-	"github.com/HaikIsaiants/chronos/internal/observability"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/observability"
 )
 
 func TestProviderMetrics(t *testing.T) {

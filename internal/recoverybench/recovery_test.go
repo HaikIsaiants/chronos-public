@@ -3,7 +3,7 @@ package recoverybench_test
 import (
 	"testing"
 
-	"github.com/HaikIsaiants/chronos/internal/recoverybench"
+	"github.com/HaikIsaiants/chronos-public/internal/recoverybench"
 )
 
 func TestRecoveryBenchmarkReplaysCommittedTail(t *testing.T) {

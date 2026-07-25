@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
 )
 
 func TestPrepareDoesNotMutateEngine(t *testing.T) {

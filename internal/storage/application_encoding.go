@@ -5,7 +5,7 @@ import (
 	"runtime"
 	"sync"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
 )
 
 const applicationEncodingWorkers = 8

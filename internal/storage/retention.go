@@ -6,7 +6,7 @@ import (
 	"errors"
 	"sort"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
 	"github.com/cockroachdb/pebble/v2"
 )
 

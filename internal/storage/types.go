@@ -3,7 +3,7 @@ package storage
 import (
 	"errors"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
 )
 
 const SchemaVersion uint32 = 6

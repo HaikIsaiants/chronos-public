@@ -3,7 +3,7 @@ package storage
 import (
 	"testing"
 
-	"github.com/HaikIsaiants/chronos/internal/core"
+	"github.com/HaikIsaiants/chronos-public/internal/core"
 )
 
 func TestTaskResultExecutionPhases(t *testing.T) {
