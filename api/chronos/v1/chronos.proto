@@ -1,0 +1,259 @@
+syntax = "proto3";
+
+package chronos.v1;
+
+option go_package = "github.com/HaikIsaiants/chronos/api/chronos/v1;chronosv1";
+
+enum WorkflowStatus {
+  WORKFLOW_STATUS_UNSPECIFIED = 0;
+  WORKFLOW_STATUS_RUNNING = 1;
+  WORKFLOW_STATUS_COMPLETED = 2;
+  WORKFLOW_STATUS_FAILED = 3;
+  WORKFLOW_STATUS_CANCELLED = 4;
+  WORKFLOW_STATUS_COMPENSATING = 5;
+  WORKFLOW_STATUS_COMPENSATED = 6;
+  WORKFLOW_STATUS_SCHEDULED = 7;
+}
+
+enum TaskStatus {
+  TASK_STATUS_UNSPECIFIED = 0;
+  TASK_STATUS_PENDING = 1;
+  TASK_STATUS_READY = 2;
+  TASK_STATUS_RUNNING = 3;
+  TASK_STATUS_COMPLETED = 4;
+  TASK_STATUS_FAILED = 5;
+  TASK_STATUS_CANCELLED = 6;
+  TASK_STATUS_COMPENSATING = 7;
+  TASK_STATUS_COMPENSATED = 8;
+}
+
+enum TimerStatus {
+  TIMER_STATUS_UNSPECIFIED = 0;
+  TIMER_STATUS_SCHEDULED = 1;
+  TIMER_STATUS_FIRED = 2;
+  TIMER_STATUS_CANCELLED = 3;
+}
+
+enum TimerPurpose {
+  TIMER_PURPOSE_UNSPECIFIED = 0;
+  TIMER_PURPOSE_WORKFLOW_START = 1;
+  TIMER_PURPOSE_RETRY = 2;
+  TIMER_PURPOSE_TIMEOUT = 3;
+}
+
+enum CommandKind {
+  COMMAND_KIND_UNSPECIFIED = 0;
+  COMMAND_KIND_SUBMIT_WORKFLOW = 1;
+  COMMAND_KIND_START_TASK = 2;
+  COMMAND_KIND_COMPLETE_TASK = 3;
+  COMMAND_KIND_FAIL_TASK = 4;
+  COMMAND_KIND_RENEW_LEASE = 5;
+  COMMAND_KIND_EXPIRE_LEASE = 6;
+  COMMAND_KIND_FIRE_TIMER = 7;
+  COMMAND_KIND_CANCEL_WORKFLOW = 8;
+}
+
+enum EventKind {
+  EVENT_KIND_UNSPECIFIED = 0;
+  EVENT_KIND_WORKFLOW_SUBMITTED = 1;
+  EVENT_KIND_TASK_READY = 2;
+  EVENT_KIND_TASK_STARTED = 3;
+  EVENT_KIND_TASK_COMPLETED = 4;
+  EVENT_KIND_TASK_FAILED = 5;
+  EVENT_KIND_WORKFLOW_COMPLETED = 6;
+  EVENT_KIND_WORKFLOW_FAILED = 7;
+  EVENT_KIND_TASK_LEASE_RENEWED = 8;
+  EVENT_KIND_TASK_LEASE_EXPIRED = 9;
+  EVENT_KIND_WORKFLOW_STARTED = 10;
+  EVENT_KIND_FANOUT_EXPANDED = 11;
+  EVENT_KIND_TIMER_SCHEDULED = 12;
+  EVENT_KIND_TIMER_FIRED = 13;
+  EVENT_KIND_TIMER_CANCELLED = 14;
+  EVENT_KIND_TASK_RETRY_SCHEDULED = 15;
+  EVENT_KIND_TASK_TIMED_OUT = 16;
+  EVENT_KIND_TASK_CANCELLED = 17;
+  EVENT_KIND_WORKFLOW_CANCELLATION_REQUESTED = 18;
+  EVENT_KIND_WORKFLOW_COMPENSATING = 19;
+  EVENT_KIND_TASK_COMPENSATED = 20;
+  EVENT_KIND_WORKFLOW_CANCELLED = 21;
+  EVENT_KIND_WORKFLOW_COMPENSATED = 22;
+}
+
+message RetryPolicy {
+  uint32 max_attempts = 1;
+  int64 initial_backoff_millis = 2;
+  uint32 backoff_multiplier = 3;
+  int64 max_backoff_millis = 4;
+}
+
+message CompensationDefinition {
+  string task_type = 1;
+}
+
+message FanoutDefinition {
+  string task_type = 1;
+  string aggregate_task_id = 2;
+  uint32 max_items = 3;
+  RetryPolicy retry = 4;
+  int64 timeout_millis = 5;
+  CompensationDefinition compensation = 6;
+}
+
+message TaskDefinition {
+  string id = 1;
+  string type = 2;
+  repeated string dependencies = 3;
+  RetryPolicy retry = 4;
+  int64 timeout_millis = 5;
+  CompensationDefinition compensation = 6;
+  FanoutDefinition fanout = 7;
+}
+
+message WorkflowDefinition {
+  string name = 1;
+  string namespace = 2;
+  repeated TaskDefinition tasks = 3;
+  int64 start_at = 4;
+}
+
+message FanoutItem {
+  string key = 1;
+  map<string, string> payload = 2;
+}
+
+message ExpandedTask {
+  string key = 1;
+  TaskDefinition definition = 2;
+  map<string, string> payload = 3;
+}
+
+message StringValues {
+  map<string, string> values = 1;
+}
+
+message Command {
+  CommandKind kind = 1;
+  string request_id = 2;
+  string workflow_id = 3;
+  string task_id = 4;
+  string attempt_id = 5;
+  int64 logical_time = 6;
+  WorkflowDefinition definition = 7;
+  map<string, string> output = 8;
+  string error = 9;
+  string worker_id = 10;
+  int64 lease_expires_at = 11;
+  uint64 fencing_token = 12;
+  string timer_id = 13;
+  string reason = 14;
+  repeated FanoutItem fanout = 15;
+}
+
+message Event {
+  string id = 1;
+  EventKind kind = 2;
+  uint64 sequence = 3;
+  string request_id = 4;
+  string request_hash = 5;
+  string workflow_id = 6;
+  string task_id = 7;
+  string attempt_id = 8;
+  uint32 attempt = 9;
+  int64 logical_time = 10;
+  WorkflowDefinition definition = 11;
+  map<string, StringValues> inputs = 12;
+  map<string, string> output = 13;
+  string error = 14;
+  string worker_id = 15;
+  int64 lease_expires_at = 16;
+  uint64 fencing_token = 17;
+  string idempotency_key = 18;
+  Timer timer = 19;
+  repeated ExpandedTask expanded_tasks = 20;
+  string reason = 21;
+  bool compensation = 22;
+}
+
+message Timer {
+  string id = 1;
+  string task_id = 2;
+  int64 deadline = 3;
+  TimerStatus status = 4;
+  TimerPurpose purpose = 5;
+  string attempt_id = 6;
+  uint64 fencing_token = 7;
+  uint32 attempt = 8;
+}
+
+message WorkerHello {
+  string worker_id = 1;
+  repeated string capabilities = 2;
+  uint32 credits = 3;
+}
+
+message CreditGrant {
+  uint32 credits = 1;
+}
+
+message LeaseHeartbeat {
+  string request_id = 1;
+  string workflow_id = 2;
+  string task_id = 3;
+  string attempt_id = 4;
+  uint64 fencing_token = 5;
+  int64 lease_expires_at = 6;
+}
+
+message TaskCompletion {
+  string request_id = 1;
+  string workflow_id = 2;
+  string task_id = 3;
+  string attempt_id = 4;
+  uint64 fencing_token = 5;
+  map<string, string> output = 6;
+  string error = 7;
+  repeated FanoutItem fanout = 8;
+}
+
+message WorkerMessage {
+  oneof value {
+    WorkerHello hello = 1;
+    CreditGrant credit = 2;
+    LeaseHeartbeat heartbeat = 3;
+    TaskCompletion completion = 4;
+  }
+}
+
+message TaskAssignment {
+  string workflow_id = 1;
+  string task_id = 2;
+  string task_type = 3;
+  string attempt_id = 4;
+  uint32 attempt = 5;
+  string worker_id = 6;
+  int64 lease_expires_at = 7;
+  uint64 fencing_token = 8;
+  string idempotency_key = 9;
+  map<string, StringValues> inputs = 10;
+  bool compensation = 11;
+  map<string, string> payload = 12;
+}
+
+message WorkerAck {
+  string request_id = 1;
+  bool accepted = 2;
+  bool duplicate = 3;
+  string code = 4;
+  string message = 5;
+}
+
+message CoordinatorMessage {
+  oneof value {
+    TaskAssignment assignment = 1;
+    WorkerAck ack = 2;
+  }
+}
+
+service WorkerService {
+  rpc Work(stream WorkerMessage) returns (stream CoordinatorMessage);
+}

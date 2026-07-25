@@ -1,0 +1,28 @@
+{
+  "recorded_at": "2026-07-21",
+  "environment": {
+    "os": "windows",
+    "logical_cpus": 32,
+    "gomaxprocs": 4
+  },
+  "throughput": {
+    "coordinators": 3,
+    "measurement_seconds": 64,
+    "rolling_window_seconds": 60,
+    "lowest_rolling_window_transitions_per_second": 50271
+  },
+  "recovery": {
+    "workflows": 100000,
+    "tail_commands": 120000,
+    "tail_entries": 469,
+    "restart_seconds": 15.191,
+    "state_mismatches": 0,
+    "version_mismatches": 0
+  },
+  "failover": {
+    "trials": 1,
+    "seconds": [1.912],
+    "conflicting_sequences": 0,
+    "lost_acknowledgements": 0
+  }
+}

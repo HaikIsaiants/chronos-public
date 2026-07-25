@@ -1,0 +1,9 @@
+{
+  "protoc": "35.1",
+  "protoc_gen_go": "1.36.11",
+  "protoc_gen_go_grpc": "1.6.1",
+  "files": [
+    "api/chronos/v1/chronos.pb.go",
+    "api/chronos/v1/chronos_grpc.pb.go"
+  ]
+}

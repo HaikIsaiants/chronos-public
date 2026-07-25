@@ -1,0 +1,57 @@
+{
+  "name": "release",
+  "namespace": "demo",
+  "start_at": 5,
+  "tasks": [
+    {
+      "id": "build-api",
+      "type": "build",
+      "dependencies": [],
+      "retry": {"max_attempts": 1, "initial_backoff_millis": 0, "backoff_multiplier": 1, "max_backoff_millis": 0},
+      "timeout_millis": 0
+    },
+    {
+      "id": "build-web",
+      "type": "build",
+      "dependencies": [],
+      "retry": {"max_attempts": 1, "initial_backoff_millis": 0, "backoff_multiplier": 1, "max_backoff_millis": 0},
+      "timeout_millis": 0
+    },
+    {
+      "id": "discover-tests",
+      "type": "discover",
+      "dependencies": ["build-api", "build-web"],
+      "retry": {"max_attempts": 2, "initial_backoff_millis": 100, "backoff_multiplier": 2, "max_backoff_millis": 1000},
+      "timeout_millis": 30000,
+      "fanout": {
+        "task_type": "test",
+        "aggregate_task_id": "aggregate",
+        "max_items": 2,
+        "retry": {"max_attempts": 2, "initial_backoff_millis": 100, "backoff_multiplier": 2, "max_backoff_millis": 1000},
+        "timeout_millis": 30000
+      }
+    },
+    {
+      "id": "aggregate",
+      "type": "aggregate",
+      "dependencies": ["discover-tests"],
+      "retry": {"max_attempts": 1, "initial_backoff_millis": 0, "backoff_multiplier": 1, "max_backoff_millis": 0},
+      "timeout_millis": 0
+    },
+    {
+      "id": "deploy",
+      "type": "deploy",
+      "dependencies": ["aggregate"],
+      "retry": {"max_attempts": 2, "initial_backoff_millis": 250, "backoff_multiplier": 2, "max_backoff_millis": 2000},
+      "timeout_millis": 30000,
+      "compensation": {"task_type": "rollback"}
+    },
+    {
+      "id": "verify",
+      "type": "verify",
+      "dependencies": ["deploy"],
+      "retry": {"max_attempts": 1, "initial_backoff_millis": 0, "backoff_multiplier": 1, "max_backoff_millis": 0},
+      "timeout_millis": 0
+    }
+  ]
+}

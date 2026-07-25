@@ -1,0 +1,4 @@
+bin/
+coverage.out
+.data/
+formal/*_TTrace_*
